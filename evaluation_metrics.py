@@ -22,8 +22,8 @@ def get_surface_metrics(prediction, labels):
 
     for batchnum in range(prediction.shape[0]):
         for channel in range(prediction.shape[1]):
-            pred = prediction[batchnum, channel].astype(int)
-            lab = labels[batchnum, channel].astype(int)
+            pred = prediction[batchnum, channel].astype(bool)
+            lab = labels[batchnum, channel].astype(bool)
 
             dist = surface_distance.compute_surface_distances(
                 pred, lab, spacing_mm=(0.6, 0.6, 0.6))
